@@ -9,27 +9,182 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <style>
+      .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px;
+      height: 0;
+      overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      }
+
+      /* video fixed width wrappers */
+      .video-wrapper {
+      width: 600px;
+      max-width: 100%;
+      }
+      .video-wrapper2 {
+      width: 500px;
+      max-width: 100%;
+      }
+
+      body {
+      background-color:black;
+      }
+    </style>
     
   </head>
   <body>
-    <div id="ytplayer" class="foo"></div>
-    
+      <div class="video-container">
+	<div id="ytplayer"></div>
+      </div>
+
     <script>
 function printduration(s) {
 
 $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+ s +'?v=2&alt=jsonc', 
 	function(data,status,xhr){
-	  // document.getElementById("times").innerHTML += data.data.duration + "," ;
-	  // document.getElementById("titles").innerHTML += "'" + s + "'" + ",";
+	  document.getElementById("times").innerHTML += data.data.duration + "," ;
+	  document.getElementById("titles").innerHTML += "'" + s + "'" + ",";
         });
 };
 
-		var pl = ['Kh7rJLAbYE4','oROglYwvPtk','266FY1NHz2U','SceKfwOv2cE','s7_u-iT0BoY','6dAyFtOmYvU','ElDvK6iqNoM','SbaH2aUEEhU'];
-		var lengths = [685,6130,557,1012,1673,9555,13595,15336];
+var pl =
+['JvdnDz5eNGw',
+'CdiYkRMf7Co',
+'cwi2CRdKH70',
+'wNAivtNPAtM',
+'hg_ggAo63zo',
+'yrB1c5HhrJo',
+'faVLgrKrKjw',
+'ARIOWyFgU_0',
+'DnhQc_2MNWo',
+'oqufRz0E9Kw',
+'dQM1DB67tkM',
+'9jsMU0BrOc8',
+'EplsjfPwbOk',
+'kkiMYt75_mE',
+'iI7votjglfM',
+'JEi2C0I0u0c',
+'1sKBLtObf1c',
+'6mrzalpLNeo',
+'GWIuJN2e62A',
+'GNjuetXTghA',
+'86wW3V9h-gU',
+'tQsYxEySS2Y',
+'frEia1I0YIE',
+'Ywy_4pAYBi4',
+'Yq0R8W1K4bs',
+'JnH4iYsj4ys',
+'zIPNYvsBPdQ',
+'aeX1FSno78M',
+'kf-f5HAnA5k',
+'LDx_ji6w4bM',
+'qDNfkkRi9-k',
+'6dbIG06KaUE',
+'dDWBqzd8BXw',
+'vQGsCLaBFZA',
+'YXgLCYOWvGA',
+'Xxizux3vM9E',
+'X-QAgNDcpME',
+'FwDHfGaoSPM',
+'hRf03Yd5DBw',
+'LCvdjaA68_8',
+'A_tW38918IU',
+'KAjxKnkWMcU',
+'2GWtwRw6Sq4',
+'NNKnQrGwalw',
+'kl7WdyNSYPg',
+'fqJCFQ5ayyc',
+'tqHGNWBixxw',
+'3ceUcn4shMY',
+'av3SAxOtyyM',
+'Oxlp3waSUAA',
+'Kfyga7ILd_8',
+'k1wQHk7vAaM',
+'qxWFClHqONA',
+'ONJFyS71Ttc',
+'lfh8BocN4YI',
+'BJtBWVTtb4E',
+'Hh_nnogyLuc',
+'NISUszKFn1o',
+'KNKPB04q1hU',
+'d62YPpfgphI',
+'SbqdgAg405U',
+'kZH7Z7hZ4RM',
+'hpdh94Ucltg',
+'OeZo0wun3oE',
+'Zu6QJjyDupU',
+'-TvdGt0cB_s',
+'qU3OFI8tZk0',
+'13DFEJgLI64',
+'4Z0nPMzvNqk',
+'bZj8jdATM3o',
+'ZcLupzhCwwI',
+'5LIo7f5uulo',
+'m34-VBwLSU8',
+'Q9EyQFfaL4c',
+'h-bpgmTeB2s',
+'pqX1s6NXC5A',
+'HYOo4IJKGuo',
+'N9Y7mZmLmhk',
+'Ua8z1tK9qBI',
+'CD4Ogn9VxqQ',
+'uUDYKE1VHtY',
+'jhCgmlWCiF8',
+'B4h7Y5DgM3E',
+'_Im1MZceiQ4',
+'PAk6ivBBwG4',
+'yV759sUbn_8',
+'-fwAtk5XbMI',
+'iLET32K4o-U',
+'QT7a3FRQsrQ',
+'CXeOR5_MXG0',
+'QCmGqDSgC5I',
+'0CYyeV46yLs',
+'wgGB4vjUCA0',
+'_f5sED6jg5s',
+'cDerkTno1RQ',
+'EB9waCGmr34',
+'nA465EZlf4k',
+'Yh8mpoQiIr4',
+'BDusw0P7128',
+'xpJJpkJFZkc',
+'wKXyC4NLNA0',
+'UL6jeKGtPTs',
+'9uHDUUzTvUc',
+'dlid2MiSfPU',
+'Y_BE6Bu1F54',
+'dd6u34a4ruM',
+'0rIj95nqHvc',
+'DO3WQ4r0Fkk',
+'vJbs5eVQ4EQ',
+'wxG0fC5eri0',
+'I5L4nF5sFbI',
+'7ZtDe2rjxCw',
+'j6d-neKc5KU',
+'pguNfDgXP2k',
+'hak-QKDyQ-g',
+'vGzvWP8urhM',
+'YNj6xSh2bVA',
+'ALDI2JaS8is',
+'-0bsw3xUaO8',
+'BVhp2o466U4'];
+var lengths = [6846,11351,10660,5309,10191,4660,5899,6007,8138,4212,6298,13266,9874,7750,8674,916,11436,9064,4366,9362,9818,8445,15933,7358,5250,10201,3871,7187,7999,13733,11133,5293,14459,19071,5440,6744,2893,4900,5197,10643,9780,7606,5074,10230,7024,11804,8052,5374,9538,9950,10811,4020,4441,10934,12550,9131,4802,5835,4697,5370,6228,6136,4662,4009,7013,6990,5254,4533,2418,4413,3356,5258,4324,5785,3619,4113,4940,4691,7155,8324,4061,7403,9975,6141,9592,8726,7752,6856,7463,7579,7828,6459,5622,10415,10049,12506,9938,14394,3918,12745,7192,3537,6723,4988,4578,6920,8538,3345,4884,8533,8747,7311,7780,3840,7154,3707,7878,8085,5019,3441];
 
-		for (var i = 0; i<pl.length; i++) {
-			printduration(pl[i]);
-		};
+//		for (var i = 0; i<pl.length; i++) {
+//			printduration(pl[i]);
+//		};
 
 		var total_time = lengths.reduce(function(a,b) {return a+b;});
 
@@ -55,7 +210,7 @@ $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+ s +'?v=2&alt=jsonc',
 		      width: '640',
 		      height: '390',
 		      videoId: pl.shift(),
-		      playerVars: { 'loop': 1, 'playlist': pl.join(),
+		      playerVars: { 'loop': 0, 'playlist': pl.slice(0,25).join(),
 		                    'autoplay': 1, 'start': seconds_in, 'controls':0				}
 		  });
 		};
